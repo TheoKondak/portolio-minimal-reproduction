@@ -26,6 +26,7 @@ export default function Home({ socials }: Props) {
       </Head>
       {/* Header */}
       <Header socials={socials} />
+      <span>test</span>
     </div>
   );
 }
