@@ -1,6 +1,6 @@
 // import {defineType, defineArrayMember} from 'sanity'
-// import {defineArrayMember, defineType} from 'sanity'
-import {defineArrayMember, defineType} from 'sanity/lib/exports'
+import {defineArrayMember, defineType} from 'sanity'
+// import {defineArrayMember, defineType} from 'sanity/lib/exports'
 
 /**
  * This is the schema definition for the rich text fields used for

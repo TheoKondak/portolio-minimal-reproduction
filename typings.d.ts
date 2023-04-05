@@ -20,6 +20,8 @@ export interface PageInfo extends SanityBody {
   email: string;
   role: string;
   heroImage: Image;
+  heroImageWidth: string;
+  heroImageHeight: string;
   name: string;
   phoneNumber: string;
   profilePic: string;
@@ -77,4 +79,36 @@ export interface Social extends SanityBody {
   _type: 'social';
   title: string;
   url: string;
+}
+
+// export interface SiteSettings extends SanityBody {
+//   filter(arg0: (item: any) => boolean): boolean;
+//   seo: SettingsSeo;
+//   cookieConcentSettings: CookieConcentSettings[];
+
+// }
+
+export interface SettingsSeo extends SanityBody {
+  favicon?: Image;
+  siteTitle?: string;
+  metaDescription?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: Image;
+  gaTag?: string;
+}
+
+export interface CookieConcentSettings extends SanityBody {
+  enableCookieConcent?: boolean | any;
+  enableCookieConcentDebug?: boolean | any;
+}
+
+export type GaTag = {
+  gaTag?: string;
+};
+
+export interface GoogleAnalytics4Settings extends SanityBody {
+  recaptchaEnabled?: boolean;
+  secretKey?: string;
+  siteKey?: string;
 }

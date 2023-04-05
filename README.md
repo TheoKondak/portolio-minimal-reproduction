@@ -1,79 +1,119 @@
-### Summary
+## The video:
 
-## I am working on my portfolio, which is in a **private repository**. 
+https://www.youtube.com/live/urgi2iz9P6U?feature=share
 
-The app is pretty straightforward. It displays some data fetched from Sanity.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## I use Sanity for hosting some data. 
+## Getting Started
 
-Everything seems to work fine with Sanity. There was some strange behavior, where when running build it could not find `sanity` to import various methods, and had to use an alternative import. The solution I adopted was this [one](https://stackoverflow.com/questions/75175242/module-sanity-has-no-exported-member-defineconfig). 
+First, run the development server:
 
-## I use NextJs 13.1.6
-
-Also, I used vite to create the app.
-
-The folder structure of the `pages/` is:
-- `api/`
-  - `fetchData.ts`
-- `_app.tsx`
-- `index.tsx`
-
-
-Everything works fine on local dev. 
-
-It also successfully builds if i run `vercel build` for the first time. If I try to run build again, it gets stuck on `info - Creating an optimized production build ...` . If i delete `.next/` it runs again without being stuck.
-
-When I try to deploy though, I keep getting an error, and I can't figure out what to do. 
-
-
-### Additional information
-
-Here are the deployment logs running `vercel deploy` with no previous build or cache.
-```
-info  - Linting and checking validity of types...
-2023-03-30T10:23:47.403Z  info  - Creating an optimized production build...
-2023-03-30T10:23:55.799Z  info  - Compiled successfully
-2023-03-30T10:23:55.799Z  info  - Collecting page data...
-2023-03-30T10:24:00.158Z  info  - Generating static pages (0/3)
-2023-03-30T10:24:00.698Z
-2023-03-30T10:24:00.699Z  Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
-2023-03-30T10:24:00.699Z  TypeError: Failed to parse URL from undefined/api/getPageInfo
-2023-03-30T10:24:00.699Z      at Object.fetch (node:internal/deps/undici/undici:14062:11)
-2023-03-30T10:24:00.699Z      at async fetchPageInfo (/vercel/path0/.next/server/pages/index.js:1229:17)
-2023-03-30T10:24:00.699Z      at async getStaticProps (/vercel/path0/.next/server/pages/index.js:1147:22)
-2023-03-30T10:24:00.700Z      at async renderToHTML (/vercel/path0/node_modules/next/dist/server/render.js:385:20)
-2023-03-30T10:24:00.700Z      at async /vercel/path0/node_modules/next/dist/export/worker.js:286:36
-2023-03-30T10:24:00.700Z      at async Span.traceAsyncFn (/vercel/path0/node_modules/next/dist/trace/trace.js:79:20)
-2023-03-30T10:24:00.700Z  info  - Generating static pages (3/3)
-2023-03-30T10:24:00.702Z
-2023-03-30T10:24:00.703Z  > Build error occurred
-2023-03-30T10:24:00.704Z  Error: Export encountered errors on following paths:
-2023-03-30T10:24:00.705Z        /
-2023-03-30T10:24:00.705Z      at /vercel/path0/node_modules/next/dist/export/index.js:415:19
-2023-03-30T10:24:00.706Z      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-03-30T10:24:00.706Z      at async Span.traceAsyncFn (/vercel/path0/node_modules/next/dist/trace/trace.js:79:20)
-2023-03-30T10:24:00.706Z      at async /vercel/path0/node_modules/next/dist/build/index.js:1400:21
-2023-03-30T10:24:00.706Z      at async Span.traceAsyncFn (/vercel/path0/node_modules/next/dist/trace/trace.js:79:20)
-2023-03-30T10:24:00.706Z      at async /vercel/path0/node_modules/next/dist/build/index.js:1259:17
-2023-03-30T10:24:00.706Z      at async Span.traceAsyncFn (/vercel/path0/node_modules/next/dist/trace/trace.js:79:20)
-2023-03-30T10:24:00.707Z      at async Object.build [as default] (/vercel/path0/node_modules/next/dist/build/index.js:66:29)
-2023-03-30T10:24:00.755Z  Error: Command "npm run build" exited with 1
-2023-03-30T10:24:01.472Z
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-If I build locally and then try to `vercel --prebuilt` I get this error:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## User Mermaid syntax (where Markdown is available)
+
+Mermaid syntax for Markdown is just adorable. At the moment it is not implemented as a feature for performance reasons.
+
+In order to implement it, for a specific page, you need to:
+
+- In the markdown supported field, add:
 
 ```
-[13:57:01.020] Running build in Cleveland, USA (East) – cle1
-[13:57:01.072] Retrieving list of deployment files...
-[13:57:01.533] Previous build caches not available
-[13:57:01.990] Downloading 2408 deployment files...
-[13:57:06.545] Using prebuilt build artifacts...
-[13:57:06.564] [Error: ENOENT: no such file or directory, stat '/vercel/path0/.vercel/output/functions/_next/data/ZHzGubdQyDvpEPDV5RW0K/index.json.func'] {
-[13:57:06.565]   errno: -2,
-[13:57:06.565]   code: 'ENOENT',
-[13:57:06.565]   syscall: 'stat',
-[13:57:06.565]   path: '/vercel/path0/.vercel/output/functions/_next/data/ZHzGubdQyDvpEPDV5RW0K/index.json.func'
-[13:57:06.565] }
-[13:57:06.667] ENOENT: ENOENT: no such file or directory, stat '/vercel/path0/.vercel/output/functions/_next/data/ZHzGubdQyDvpEPDV5RW0K/index.json.func'
+          <Script
+            id="Mermaid"
+            type="module"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs";
+        mermaid.initialize({startOnLoad: true});
+        mermaid.contentLoaded();
+`,
+            }}
+          />
+        ```
+        > Dont forget to `import Script from 'next/script';`
+
+- Add a pre html tag
+
 ```
+<pre class="mermaid bg-white flex justify-center">
+flowchart TD
+    A[Kanban Board] -->I[Modal]
+    A[Kanban Board] -->B
+    B[Kanban Column] --> D(Tickets list)
+    B[Kanban Column] --> C(Create Ticket)
+    C --> E(Create Ticket)
+    D --> E(Ticket)
+    E --> H(Drop to another column)
+    E --> J(View Ticket)
+    J --> F(Edit Ticket)
+    J --> I[Modal]
+    F --> I[Modal]
+   
+</pre>
+```
+
+
+
+## Issues
+
+### Current Issues
+
+- Experience Dates need to include Month and year only
+
+### Fixed Issues
+
+
+### Roadmap
+
+- Add Google Analytics https://www.npmjs.com/package/nextjs-google-analytics
+- Add Microbloging section
+- Add a better implementation for sending an email
+- Add Recaptcha to the email form
+- For each Experience, Project, create a new route ex `experience/experienceTitle`
+- Contact form, add email validation
+
+### Sources:
+
+- [Sanity Tailwind issue](https://github.com/sanity-io/sanity/issues/3884)
+- [Add sanity.io CDN to next.config.js to resolve issue with Image](https://github.com/vercel/next.js/issues/23590#issuecomment-838171591)
+- [Enable Mermaid Syntax rendering ](https://www.andynanopoulos.com/blog/how-to-integrate-next-react-mermaid-markdown)
+- [Error: Cannot find module 'sanity' or its corresponding type declarations](https://github.com/vercel/next.js/discussions/44451)
+- [Type error: Argument of type '{ projectId: string | undefined; }' is not assignable to parameter of type 'SCL| SPD | undefined'](https://stackoverflow.com/questions/73980383/type-error-argument-of-type-projectid-string-undefined-is-not-assigna)
+- [Implement Google Recaptcha](https://www.techomoro.com/how-to-add-google-recaptcha-v3-in-a-next-js-form/)
+
+- [Implementing Cookie Concent](https://www.mridul.tech/blogs/how-to-handle-cookie-consent-in-next-js)
+- [Cookie Concent Documentation](https://www.npmjs.com/package/react-cookie-consent#using-predefined-css-classes)

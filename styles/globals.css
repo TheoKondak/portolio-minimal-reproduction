@@ -6,6 +6,24 @@
   .heroButton {
     @apply px-2 md:px-6 py-2 border border-[#242424] rounded-full uppercase text-sm tracking-widest text-gray-500 transition-all hover:border-[#f7ab0a]/40;
   }
+
+  /* Cookie Concent */
+
+  .CookieConsent {
+    @apply w-full flex items-center justify-between gap-2 py-4 px-2 relative z-50;
+  }
+
+  .CookieConsent div:not(.cookieConcentContent) {
+    @apply flex items-center gap-1 min-w-min;
+  }
+
+  #rcc-confirm-button {
+    @apply bg-green-600 py-1 px-4 rounded-md text-black font-bold text-xs;
+  }
+
+  #rcc-decline-button {
+    @apply bg-red-600 py-1 px-4 rounded-md text-black font-bold text-xs;
+  }
 }
 
 @layer base {
@@ -16,4 +34,11 @@
   li {
     @apply pb-6 md:list-disc;
   }
+}
+/* Hide recaptcha */
+.grecaptcha-badge {
+  @apply invisible;
+}
+.grecaptcha-logo {
+  @apply invisible;
 }
