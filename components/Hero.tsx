@@ -1,6 +1,7 @@
+'use client';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import BackgroundCircles from './BackgroundCircles';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Image from 'next/image';
 
 import { urlFor } from '@/sanity';
@@ -31,24 +32,24 @@ function Hero({ pageInfo }: Props) {
         </h1>
 
         <div className="pt-5">
-          <Link href="#about">
+          <a href="#about">
             <button className="heroButton">About</button>
-          </Link>
-          <Link href="#work-experience">
+          </a>
+          <a href="#work-experience">
             <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
+          </a>
+          <a href="#skills">
             <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#projects">
+          </a>
+          <a href="#projects">
             <button className="heroButton">Projects</button>
-          </Link>
-          <Link href="#contact">
+          </a>
+          <a href="#contact">
             <button className="heroButton">Contact Me</button>
-          </Link>
-          {/* <Link href="#micro-blog">
+          </a>
+          {/* <a href="#micro-blog">
             <button className="heroButton">Micro-Blog</button>
-          </Link> */}
+          </a> */}
         </div>
       </div>
     </div>

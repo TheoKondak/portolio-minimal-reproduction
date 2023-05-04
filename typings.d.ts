@@ -37,7 +37,7 @@ export interface Technology extends SanityBody {
   height: string;
 }
 
-export interface Skill extends SanityBody {
+export interface SkillType extends SanityBody {
   _type: 'skill';
   _id: string;
   image: Image;
@@ -46,6 +46,11 @@ export interface Skill extends SanityBody {
   website: string;
   width: string;
   height: string;
+}
+
+export interface Tag extends SanityBody {
+  title: string;
+  link?: string | null;
 }
 
 export interface Project extends SanityBody {
@@ -62,13 +67,17 @@ export interface Experience extends SanityBody {
   _type: 'experience';
   linkToBuild: string;
   company: string;
-  companyImage: Image;
+  companyImage: Image | string;
   dateStarted: date;
-  dateEnded: date;
-  isCurrentlyWorkingHere: boolean;
+  dateEnded?: date | null;
+  isCurrentlyWorkingHere?: boolean;
   jobTitle: string;
-  points: Point[];
-  technologies: Technology[];
+  points: Point[] | Array;
+  technologies: Technology[] | Array;
+  _createAt?: date | string;
+  _updatedAt?: date | string;
+  _id: string;
+  _rev?: string;
 }
 
 export interface Point extends SanityBody {
@@ -111,4 +120,34 @@ export interface GoogleAnalytics4Settings extends SanityBody {
   recaptchaEnabled?: boolean;
   secretKey?: string;
   siteKey?: string;
+}
+
+export interface PostData {
+  title: string;
+  content: string;
+  skills: SkillType[] | Technology[];
+  category?: string;
+  tags?: Tags[];
+  imageSrc?: string;
+  imageAlt?: string;
+  postDate?: string;
+  pageTitle?: string;
+  metaDescription?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+}
+
+export interface PostSettings {
+  colors?: PostColors;
+  favicon?: string;
+}
+
+export interface PostColors {
+  actionColor: string;
+  danger: string;
+  primaryColor: string;
+  secondaryColor: string;
+  successColor: string;
+  textColor: string;
 }

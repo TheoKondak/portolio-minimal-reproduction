@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-console.log('hi');
+// console.log('hi');
 const handler = (req, res) => {
   if (req.method === 'POST') {
     try {

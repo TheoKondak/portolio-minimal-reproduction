@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Skill } from '@/typings';
+import { SkillType, Technology } from '@/typings';
 
 import { motion } from 'framer-motion';
 
@@ -8,7 +8,7 @@ import { urlFor } from '@/sanity';
 
 type Props = {
   directionLeft?: boolean;
-  skill: Skill;
+  skill: SkillType | Technology;
   order: number;
 };
 
@@ -43,7 +43,7 @@ const Skill = ({ skill, directionLeft, order }: Props) => {
         height={iconSize}
       />
 
-      <div className={`absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-16 xl:w-20 h-16 xl:h-20 rounded-full z-0`}>
+      <div className={`absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-${tailwindIconSize} h-${tailwindIconSize} xl:w-${tailwindIconSizeXl} xl:h-${tailwindIconSizeXl} rounded-full z-0`}>
         <Link href={skill?.website} target="_blank" rel="noopener noreferrer">
           <div className="flex items-center justify-center h-full">
             <p className="text-xs font-medium text-black opacity-100">{skill?.title}</p>
@@ -72,7 +72,7 @@ const Skill = ({ skill, directionLeft, order }: Props) => {
         height={skill?.height ? Number(skill?.height) : Number(iconSize)}
       />
 
-      <div className={`absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-16 xl:w-20 h-16 xl:h-20 rounded-full z-0`}>
+      <div className={`absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-${tailwindIconSize} h-${tailwindIconSize} xl:w-${tailwindIconSizeXl} xl:h-${tailwindIconSizeXl} rounded-full z-0`}>
         <div className="flex items-center justify-center h-full">
           <p className="text-xs font-medium text-black opacity-100">{skill?.title}</p>
         </div>

@@ -1,4 +1,5 @@
-import Link from 'next/link';
+'use client';
+// import Link from 'next/link';
 
 import { SocialIcon } from 'react-social-icons';
 import { motion } from 'framer-motion';
@@ -48,9 +49,9 @@ function Header({ socials }: Props) {
         }}
         className="flex flex-row  items-center text-gray-300 cursor-pointer">
         <SocialIcon className="cursor-pointer" url="#contact" network="email" fgColor="grey" bgColor="transparent" />
-        <Link href="#contact">
+        <a href={`#contact`}>
           <p className="uppercase hidden md:inline-flex text-small text-gray-500">Get In Touch</p>
-        </Link>
+        </a>
       </motion.div>
     </header>
   );

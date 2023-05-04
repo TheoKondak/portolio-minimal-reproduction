@@ -1,6 +1,4 @@
 import blockContent from './blockContent'
-import category from './category'
-import author from './author'
 
 import pageInfo from './pageInfo'
 import skill from './skill'
@@ -13,18 +11,30 @@ import reCaptcha from './siteSettings/reCaptcha'
 import gaTag from './siteSettings/gaTag'
 import cookieConcent from './siteSettings/cookieConcent'
 
+// Blog
+import category from './blog/category'
+// import categories from './blog/categories'
+import author from './blog/author'
+import post from './blog/post'
+// import posts from './blog/posts'
+import tags from './blog/tag'
+// import blogSettings from './blog/blogSettings'
+
 export const schemaTypes = [
   pageInfo,
   skill,
   experience,
   project,
   social,
-  author,
-  category,
   blockContent,
   seo,
   colors,
   reCaptcha,
   gaTag,
   cookieConcent,
+  post,
+  category,
+  tags,
+  author,
 ]
+// blogSettings,

@@ -3,31 +3,31 @@ import { groq } from 'next-sanity';
 import { sanityClient } from '../../sanity';
 
 // Types
-import { Skill } from '../../typings';
+import { SkillType } from '../../typings';
 
 const query = groq`
 *[_type == 'skill']
 `;
 
 type Data = {
-  skills: Skill[];
+  skills: SkillType[];
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const skills: Skill[] = await sanityClient.fetch(query);
-  res.status(200).json({ skills });
-
-  if (Number(res.status) < 400) {
-    console.log('Fetched successfully!');
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | { error: string }>) {
+  console.log('Requesting Experiences');
+  try {
+    const skills: SkillType[] = await sanityClient.fetch(query);
+    console.log('---');
+    console.log(req);
+    console.log('---');
+    console.log(res);
+    console.log('---');
     console.log(skills);
-  } else {
-    console.log(`Error occurred fetching Settings status code`);
+    console.log('---');
+
+    res.status(200).json({ skills });
+  } catch (err) {
+    console.log('Fetching data failed', err);
+    res.status(500).json({ error: 'Fetching data failed' });
   }
-  console.log('---');
-  console.log(req);
-  console.log('---');
-  console.log(res);
-  console.log('---');
-  console.log(skills);
-  console.log('---');
 }

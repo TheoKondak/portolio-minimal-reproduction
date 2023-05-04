@@ -1,6 +1,7 @@
 import { urlFor } from '@/sanity';
 
 import { motion } from 'framer-motion';
+
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';

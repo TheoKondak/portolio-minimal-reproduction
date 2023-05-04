@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 
 import { urlFor } from '@/sanity';
 
-import { Experience, Skill } from '@/typings';
+import { Experience, Technology } from '@/typings';
 
 import Link from 'next/link';
+import Button from './Button';
 
 type Props = {
   experience: Experience;
@@ -37,7 +38,7 @@ export default function ExperienceCard({ experience }: Props) {
         <h4 className="text-2xl 2xl:text-4xl text-center font-light">{experience?.jobTitle}</h4>
         <p className="font-bold text-xl 2xl:text-2xl flex justify-center mt-1">{experience?.company}</p>
         <div className="flex justify-center items-center flex-wrap space-x-2 my-2 w-5/6 mx-auto">
-          {experience?.technologies.map((technology) => (
+          {experience?.technologies.map((technology: Technology) => (
             <div key={technology?._id}>
               {technology.website ? (
                 <Link href={technology.website} title={`Visit ${technology?.title} website`} target="_blank" rel="noopener noreferrer" className="rounded-full">
@@ -55,12 +56,19 @@ export default function ExperienceCard({ experience }: Props) {
         </p>
         <div className="h-auto pb-[50%] md:pb-[55%] 2xl:pb-[100%] overflow-hidden relative">
           <ul className="list-disc ml-5 text-lg  text-white h-full overflow-y-auto scrollbar-track-gray-400/20 scrollbar-thumb-[#f7AB0a]/80 scrollbar-thin scrollbar-thumb-rounded-md mb-10 shadow-inset-top absolute  top-0 bottom-0">
-            {experience.points.map((point, i) => (
+            {experience.points.map((point: string, i: number) => (
               <li key={point ? i.toString() + point.toString() : i.toString()}>{point.toString()}</li>
             ))}
           </ul>
           {/* Padding bottom so the whole content of the UL is scrollable. Otherwise the last part is hidden */}
           <div className="pb-[24%] md:pb-0"></div>
+        </div>
+        <div className="w-full flex justify-center my-4">
+          <Button style="primary" size="medium">
+            <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/experiences/${experience?._id}`} title={`Learn more about my experience working for ${experience?.company}`}>
+              View More
+            </Link>
+          </Button>
         </div>
       </div>
     </article>

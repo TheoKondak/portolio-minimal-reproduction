@@ -50,25 +50,26 @@ In order to implement it, for a specific page, you need to:
 
 - In the markdown supported field, add:
 
-```
+```html
           <Script
             id="Mermaid"
             type="module"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
-              __html: `
+             __html: `
         import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs";
         mermaid.initialize({startOnLoad: true});
         mermaid.contentLoaded();
-`,
+        `,
             }}
           />
-        ```
-        > Dont forget to `import Script from 'next/script';`
+```
+
+> Don't forget to `import Script from 'next/script';`
 
 - Add a pre html tag
 
-```
+```html
 <pre class="mermaid bg-white flex justify-center">
 flowchart TD
     A[Kanban Board] -->I[Modal]
@@ -90,6 +91,8 @@ flowchart TD
 
 ## Issues
 
+- Improve performance. Largest Contentful Paint
+
 ### Current Issues
 
 - Experience Dates need to include Month and year only
@@ -101,10 +104,17 @@ flowchart TD
 
 - Add Google Analytics https://www.npmjs.com/package/nextjs-google-analytics
 - Add Microbloging section
+  - [Structured data](https://developers.google.com/search/docs/appearance/structured-data/article)
 - Add a better implementation for sending an email
 - Add Recaptcha to the email form
 - For each Experience, Project, create a new route ex `experience/experienceTitle`
 - Contact form, add email validation
+- Create a better theme
+  - 80s Retro design Theme:
+    - [How to Easily Create Retro Landscapes with an 80s Aesthetic](https://blog.spoongraphics.co.uk/tutorials/how-to-easily-create-retro-landscapes-with-an-80s-aesthetic)
+    - [Portfolio](https://www.r4ms3s.cz/)
+    - https://codepen.io/propjockey/pen/VwKQENg
+    - https://codepen.io/theokondak/pen/poOMQQK
 
 ### Sources:
 
@@ -115,5 +125,9 @@ flowchart TD
 - [Type error: Argument of type '{ projectId: string | undefined; }' is not assignable to parameter of type 'SCL| SPD | undefined'](https://stackoverflow.com/questions/73980383/type-error-argument-of-type-projectid-string-undefined-is-not-assigna)
 - [Implement Google Recaptcha](https://www.techomoro.com/how-to-add-google-recaptcha-v3-in-a-next-js-form/)
 
-- [Implementing Cookie Concent](https://www.mridul.tech/blogs/how-to-handle-cookie-consent-in-next-js)
+- [Implementing Cookie Consent](https://www.mridul.tech/blogs/how-to-handle-cookie-consent-in-next-js)
 - [Cookie Concent Documentation](https://www.npmjs.com/package/react-cookie-consent#using-predefined-css-classes)
+- [Creating Google Analytics GDPR cookie notice with React](https://www.laloov.com/posts/creating-google-analytics-gdpr-cookie-notice-with-react)
+- [Design Idea for Blog Post Page](https://roboto.studio/blog/tips-and-tricks-for-building-sanity-schema-efficiently)
+- [Load Tailwind in `app/`](https://stackoverflow.com/questions/74259178/how-can-i-apply-tailwind-css-in-app-folder-in-next-13)
+- [Nextjs 13 Link not scrolling to anchor element](https://github.com/vercel/next.js/issues/44295)
