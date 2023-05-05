@@ -27,7 +27,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env*.local
+.env.local
 
 # vercel
 .vercel
@@ -52,5 +52,5 @@ package-lock.json
 *.tsbuildinfo
 
 # Dotenv and similar local-only files
-*.local
+# *.local
 pnpm-lock.yaml
