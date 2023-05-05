@@ -55,11 +55,23 @@ export default async function Home() {
   // const siteSettings: any = await fetchSettings();
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-start">
       <h1 className="text-white text-2xl  my-2">Minimal Reproduction</h1>
-      <Link className="text-white p-1 border border-white" href={`${process.env.NEXT_PUBLIC_BASE_URL}/experiences/150833ed-3c26-4242-aa21-7101c46692da`} title="Sample Experience">
-        Sample Experience Page
-      </Link>
+
+      <div className="flex flex-col justify-center align-center gap-5 max-w-max mx-auto">
+        <span className="text-white text-center p-1 px-4 flex flex-col justify-center align-center">The issue occurs when visiting a non existing route for example {process.env.NEXT_PUBLIC_BASE_URL}/nonExistingRoute</span>
+
+        <span className="text-white text-center p-1 px-4 flex flex-col justify-center align-center">But it does not occur on some other route, where I use notFound() </span>
+
+        <Link className="text-white text-center p-1 border border-white" href={`${process.env.NEXT_PUBLIC_BASE_URL}/experiences/150833ed-3c26-4242-aa21-7101c46692da`} title="Sample">
+          Sample Blog Post Route
+          <small>The post exists</small>
+        </Link>
+        <Link className="text-white text-center p-1 border border-white flex flex-col justify-center align-center" href={`${process.env.NEXT_PUBLIC_BASE_URL}/experiences/nonExistingRoute`} title="Sample">
+          Non Existing Blog Post Route (post)
+          <small>The error does not occur</small>
+        </Link>
+      </div>
     </div>
   );
 }
